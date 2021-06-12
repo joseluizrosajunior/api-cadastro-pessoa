@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -27,7 +26,7 @@ public class PessoaService {
     public Pessoa update(Pessoa pessoa, Long id) {
         boolean pessoaExists = pessoaRepository.existsById(id);
         if (pessoaExists && id.equals(pessoa.getId())) {
-            return pessoaRepository.save(pessoa);
+            return save(pessoa);
         }
         return null;
     }

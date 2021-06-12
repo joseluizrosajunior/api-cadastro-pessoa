@@ -2,12 +2,8 @@ package com.joseluizjunior.cadastropessoa.model;
 
 import com.querydsl.core.annotations.QueryEntity;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import java.io.Serializable;
 import java.time.LocalDate;
 
