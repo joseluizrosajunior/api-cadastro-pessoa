@@ -34,7 +34,7 @@ public class Pessoa implements Serializable {
     @ManyToOne
     private Pais nacionalidade;
 
-    @Column(length = 11)
+    @Column(length = 11, unique = true)
     private String cpf;
 
 }

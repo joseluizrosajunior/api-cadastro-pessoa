@@ -41,8 +41,8 @@ public class PessoaDto {
         this.nome = pessoa.getNome();
         this.email = pessoa.getEmail();
         this.dataNascimento = pessoa.getDataNascimento();
-        this.naturalidade = new MunicipioDto(pessoa.getNaturalidade());
-        this.nacionalidade = new PaisDto(pessoa.getNacionalidade());
+        this.naturalidade = pessoa.getNaturalidade() != null ? new MunicipioDto(pessoa.getNaturalidade()) : null;
+        this.nacionalidade = pessoa.getNacionalidade() != null ? new PaisDto(pessoa.getNacionalidade()) : null;
         this.cpf = pessoa.getCpf();
     }
 
