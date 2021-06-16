@@ -31,7 +31,7 @@ public class PessoaController {
             @RequestParam(required = false) String cpf) {
         BooleanExpression where = QPessoa.pessoa.nome.toLowerCase().like("%"+nome.toLowerCase()+"%");;
         if (StringUtils.hasText(cpf)) {
-            where = where.and(QPessoa.pessoa.cpf.eq(cpf));
+            where = where.or(QPessoa.pessoa.cpf.eq(cpf));
         }
         Page<Pessoa> pessoas = pessoaService.findAll(where, pageable);
         return ResponseEntity.ok(pessoas.map(PessoaDto::new));
