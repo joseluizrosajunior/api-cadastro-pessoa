@@ -9,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
@@ -33,6 +34,10 @@ public class PessoaDto {
     @CPF(message = "CPF inválido")
     private String cpf;
 
+    private LocalDateTime createdIn = LocalDateTime.now();
+
+    private LocalDateTime updatedIn;
+
     public PessoaDto(Pessoa pessoa) {
         if (Objects.isNull(pessoa)) {
             return;
@@ -44,6 +49,8 @@ public class PessoaDto {
         this.naturalidade = pessoa.getNaturalidade() != null ? new MunicipioDto(pessoa.getNaturalidade()) : null;
         this.nacionalidade = pessoa.getNacionalidade() != null ? new PaisDto(pessoa.getNacionalidade()) : null;
         this.cpf = pessoa.getCpf();
+        this.createdIn = pessoa.getCreatedIn();
+        this.updatedIn = pessoa.getUpdatedIn();
     }
 
     public static Pessoa dtoToEntity(PessoaDto dto) {

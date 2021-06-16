@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -36,5 +37,9 @@ public class Pessoa implements Serializable {
 
     @Column(length = 11, unique = true)
     private String cpf;
+
+    private LocalDateTime createdIn = LocalDateTime.now();
+
+    private LocalDateTime updatedIn;
 
 }

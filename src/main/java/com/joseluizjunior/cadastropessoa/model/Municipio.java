@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -26,4 +27,7 @@ public class Municipio implements Serializable {
     @Enumerated(EnumType.STRING)
     private UF uf;
 
+    private LocalDateTime createdIn = LocalDateTime.now();
+
+    private LocalDateTime updatedIn;
 }
